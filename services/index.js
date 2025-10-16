@@ -9,6 +9,7 @@ export const fetchCatFact = async () => {
 		return data;
 	} catch (error) {
 		console.error("Error fetching cat fact", error.message);
+		// Fallback response in request timeout
 		return "Could not fetch a cat fact at this time";
 	}
 };

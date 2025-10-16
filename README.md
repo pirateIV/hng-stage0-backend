@@ -1,4 +1,4 @@
-# HNG Stage 0 Task: Dyanmic Profile API
+# HNG Stage 0 Task: Dynamic Profile API
 
 A simple RESTful API endpoint that returns profile information along with dynamic cat facts fetched from an external API.
 

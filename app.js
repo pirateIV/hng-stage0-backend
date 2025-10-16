@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import rateLimit from "express-rate-limit";
 import { env } from "./config/env.js";
 import { fetchCatFact } from "./services/index.js";
@@ -16,6 +16,11 @@ const profileInfo = {
 	stack: env.USER_TECH_STACK,
 };
 
+app.get("/", (_req, res) => {
+	// Auto-redirect to `/me`
+	res.redirect("/me");
+});
+
 app.get("/me", limiter, async (_req, res, next) => {
 	try {
 		// Fetch cat fact from external API
@@ -24,20 +29,16 @@ app.get("/me", limiter, async (_req, res, next) => {
 		// Get current UTC timestamp in ISO 8601 format
 		const timestamp = new Date().toISOString();
 
-		const response = {
-			status: "success",
+		res.status(200).json({
+			success: true,
 			user: profileInfo,
 			timestamp,
 			fact: catFact,
-		};
-
-		res.status(200).json(response);
+		});
 	} catch (error) {
 		next(error);
 	}
 });
-
-
 
 // Error handling middleware
 app.use((err, _req, res, _next) => {
