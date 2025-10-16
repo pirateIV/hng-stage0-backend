@@ -8,6 +8,14 @@ const app = express();
 const limiter = rateLimit({
 	windowMs: 5 * 60 * 1000, // 5 minutes
 	limit: 10,
+	standardHeaders: true,
+	legacyHeaders: false,
+	handler: (_req, res) => {
+		res.status(429).json({
+			status: "error",
+			message: "Too many requests, please try again later.",
+		});
+	},
 });
 
 const profileInfo = {
@@ -15,11 +23,6 @@ const profileInfo = {
 	name: env.USER_NAME,
 	stack: env.USER_TECH_STACK,
 };
-
-app.get("/", (_req, res) => {
-	// Auto-redirect to `/me`
-	res.redirect("/me");
-});
 
 app.get("/me", limiter, async (_req, res, next) => {
 	try {
@@ -38,6 +41,14 @@ app.get("/me", limiter, async (_req, res, next) => {
 	} catch (error) {
 		next(error);
 	}
+});
+
+// Handle invalid routes (404)
+app.use((_req, res) => {
+	res.status(404).json({
+		status: "error",
+		message: "Route not found",
+	});
 });
 
 // Error handling middleware
