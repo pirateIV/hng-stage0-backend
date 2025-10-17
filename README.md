@@ -6,7 +6,7 @@ This task demonstrates knowledge of RESTful API design, external API consumption
 
 ## Live Demo
 
-> **Base URL:** `https://deployed-agent/me`
+> **Base URL:** `https://hng-stage0-backend-production-fdf4.up.railway.app/me`
 
 ### Example Endpoint
 
@@ -46,8 +46,8 @@ Create a `.env` file in the project root using `.env.example` as a guide:
 
 ```env
 PORT=3000
-USER_NAME=Benjamin Abolade
-USER_EMAIL=benjamin@example.com
+USER_NAME=your name here
+USER_EMAIL=your email here
 USER_TECH_STACK=Node.js/Express
 ```
 
