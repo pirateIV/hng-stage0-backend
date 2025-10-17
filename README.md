@@ -65,7 +65,7 @@ http://localhost:3000
 
 ## Features Implemented
 
-* **Rate limiting** using `express-rate-limit`
+* **Rate limiting** using `express-rate-limit`. This feature permits up to 10 requests to the endpoint `/me`. After that it resets in 5 minutes.
 * **Dynamic cat fact** fetched from [Cat Fact API](https://catfact.ninja/fact)
 * **Environment configuration** with `.env`
 * **Automatic 404 handling** for invalid routes
@@ -99,7 +99,7 @@ Tests include:
 └── .env.example
 ```
 
-## What I Learned
+## What I Learnt
 
 * How to structure a simple Express API endpoint.
 * How to integrate external APIs (Cat Fact API).
