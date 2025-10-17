@@ -34,8 +34,8 @@ Returns profile information with a random cat fact.
 1. **Clone the Repository**
 
 ```bash
-git clone <my-repo-url>
-cd hng-stage0-profile-api
+git clone https://github.com/pirateIV/hng-stage0-backend
+cd hng-stage0-backend
 ```
 
 2. **Install dependencies**
@@ -66,11 +66,12 @@ If you don't set these environment variables, default values will be used.
 
 ### Running Locally
 
+1. Run the command:
+
 ```bash
 npm start
 ```
 
-3. **Access the API**
+2. Access the API
 
--  API Base URL: `http://localhost:3000`
 -  Profile endpoint: `http://localhost:3000/me`
