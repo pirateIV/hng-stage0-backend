@@ -33,7 +33,7 @@ app.get("/me", limiter, async (_req, res, next) => {
 		const timestamp = new Date().toISOString();
 
 		res.status(200).json({
-			success: true,
+			status: "success",
 			user: profileInfo,
 			timestamp,
 			fact: catFact,
@@ -55,7 +55,7 @@ app.use((_req, res) => {
 app.use((err, _req, res, _next) => {
 	console.error(err);
 	res.status(500).json({
-		success: false,
+		status: "error",
 		message: "Internal Server Error",
 	});
 });
@@ -65,3 +65,5 @@ const PORT = env.PORT;
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
 });
+
+export default app;
