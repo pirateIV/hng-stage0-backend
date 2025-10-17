@@ -85,10 +85,28 @@ Tests include:
 * Successful `/me` response with all required fields
 * 404 handling for invalid routes
 
+The Below shows all test passing for the acceptance criteria:
+
+```txt
+ PASS  ./app.test.js (21.816 s)
+  GET /me endpoint
+    √ should return user info, timestamp, and cat fact (1386 ms)
+  Rate limiting
+    √ should block requests after the limit is exceeded (2580 ms)
+  Invalid routes
+    √ should return JSON 404 response for unknown routes (11 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        24.171 s
+Ran all test suites.
+```
+
 ## Project Structure
 
 ```
-.
+
 ├── config/
 │   └── env.js
 ├── services/
